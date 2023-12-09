@@ -1,14 +1,14 @@
 # Tutorial básico de desarrollo web
-## enlace del tutorial [Gettinng satarted whit the web](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web)
+Enlace del tutorial [Gettinng satarted whit the web](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web)
 
 # Estructura básica de archivos y carpetas
-## La estructura basica de un sitio web consta de
+La estructura basica de un sitio web consta de
 - el index o pagina de inicio <code>index.html</code>
 - una carpeta para imagenes <code>images</code>
 - una carpeta para estilos <code>styles</code>
 - una carpeta para scripts <code>scripts</code>
 
-### Estructura básica
+## Estructura básica
 ```
 |-- index.html
 |-- images
@@ -62,16 +62,16 @@ Ejemplo estructura basica de una página web
 </body>
 </html>
 ```
-## Elementos de una pagina web
+# Elementos de una pagina web
 Una página esta conformada por varios elementos estos pueden ser imagenes, texto, vinculos, videos, aduio, etc. estos elementos se define dentro de etiquetas que definel el tipo del que se trata.
-### Imagenes
+## Imagenes
 Las imagenes se muestran mediente la etiqueta ```<imag />``` dentro de esta se especifica la ubicación asi como otros atributos como puede ser el texto alternativo.
 Ejemplo
 ``` html
     <img src="../images/fire-fox-icon.png" alt="Firefox logo: flaming fox wrapping the world" />
 ```
-### Texto
-#### Encabezados
+## Texto
+### Encabezados
 Los encabezados se especifican con las equetas ```<h1></h1>```(mas grabde) a la ```<h6><h6>``` (mas pequeña), y sirven para especificar títulos y subtítulos.
 Ejemplo
 ``` html
@@ -81,13 +81,13 @@ Ejemplo
 <h3>My subheading</h3>
 <h4>My sub-subheading</h4>
 ```
- #### Párafos
+ ### Párafos
  Un párafo se especifica mediante la etiqueta ```<p></p>```, dentro especificamos el texto que contendra.  
  Ejemplo
  ``` html
  <p>Esto es un párafo</p>
 ```
- #### listas
+ ### listas
 Las listas se pueden definir de dos maneras ```<ul>``` (listas sin orden) o ```<ol></ol>```  
 Ejemplo
 ``` html
@@ -104,9 +104,83 @@ Ejemplo
     <li>elemeto ..n</li>
 </ol>
 ```
-#### vínculos
+### vínculos
 Los vínculos o enlaces a otras paginas se especifican medinate la etiqueta ```<a></a>```, en esta se 
 deve de espcificar la ruta (local o externa), asi como el taxto que se mostrará.  
 Ejemplo
 ``` html 
-<a href="https://www.mozilla.org/en-US/about/manifesto/">Mozilla manifesto</a> 
+<a href="https://www.mozilla.org/en-US/about/manifesto/">Mozilla manifesto</a>
+```
+# Dando estilo, CSS básico
+Los estilos se aplican a elemintos que son mostrados en la pagia estos se aplican mediante directivas CSS. Segun las buenas practicas
+esto se hace en un archivo separado que contendrá toso los estyilos a aplicar.
+## Añadiendo el archivo de estilos CSS
+Para añadir el archivo que contendra los estilos se especifica una erferencia dentro de la etiqueta ```<head></head>.
+Ejemplo
+``` html
+<head>
+    ...
+    <link href="styles/style.css" rel="stylesheet" />
+    ...
+</head>
+```
+## Anatomia de los estilos
+Los estilos, tambien llamdos reglas se componen de:
+- selector (define el elemento al que se le aplicara el estilo)
+- declaración (define las propiedades y valores de estas propiedades que se aplicaran sobre los elemntos)
+las estructura basica seria la siguiente.  
+selector { propiedad1: valor; propiedad2: valor; ...} 
+
+Ejemplo1 : establece todos los párafos de color rojo
+``` css
+p {
+    color: red;
+}
+```
+Ejemplo2 : establecer varias propiedades
+``` css
+p {
+    color: red;
+    width: 500x;
+    border: 1px solid black
+}
+```
+## Seleccionando multiples elementos
+Para seleccionar multiples elementos, estos se deban agrupar en la parte del selctor separados por comas.  
+Ejemplo
+``` css
+p,
+li,
+h1 {
+  color: red;
+}
+```
+## Diferentes tipos de sectores
+Acontinuación se especifican algunos tipos de selectores  
+| nombre del selector | función | ejemplo |
+| ------------------: | :------| :------:|
+| selector por elemento| selecciona todos los elementos del tipo especificado | p -> ```<p>``` |
+| selector por id| selecciona el elementocon el ID especificado | #my-id -> ```<p id="my-id">``` |
+| selector por clase | selecciona los elementos con la misma clase | .my-class -> ```<p class="my-class">``` |
+| selector por clase | selecciona el o los elementos con el mismo atributo | img[src] ```<img src="myimage.png">``` |
+| pseudo selector | selecciona el elemento pero solo cuando esta en un estado específico, por ejemplo cuando el raton esta sobre el | a:hover |
+
+## Fuentes
+Se pueden aplicar fuentes al texto, mediante un vínculo al archivo de la fuente, en la parte del ```<head></head>```  
+Ejemplo
+``` html
+<head>
+    ...
+    <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans"
+    rel="stylesheet" />
+    ...
+</head>
+```
+## Padding (relleno)
+la distrubución en html se basa en un modelo tipo caja, por lo que cada elemento se puede visualizar como una caja con los siguientes atributos.  
+- padding: el espacio entre la caja y el contenido de esta.
+- border: el área de la caja
+- margin: el espacio entre la caja y otras cajas o elementos
+
+
